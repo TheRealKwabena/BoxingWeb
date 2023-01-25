@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Saira+Condensed:wght@700&display=swap');
+
+.section {
+  background-image: url('../../assets/boxerfighting.jpeg');
+  background-position: 5% 10%;
+}
+h3 {
+  font-family: 'Saira Condensed', sans-serif;
+  text-transform: uppercase;
+  font-weight: 800 ;
+  font-size: 60px;
+}

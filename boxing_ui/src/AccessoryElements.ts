@@ -6,10 +6,10 @@ export const Card = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
-    width: 359px;
-    height: 127px;
-    top: 300px;
-    left: 500px;
+    width: 300px;
+    height: 100px;
+    top: 260px;
+    left: 520px;
     box-shadow: 10px 10px 10px rgba(202, 47, 47, 0.25);
     z-index: 9;
 

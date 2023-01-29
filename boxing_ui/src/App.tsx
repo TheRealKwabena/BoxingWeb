@@ -7,16 +7,16 @@ import Footer from './components/Footer/Footer'
 import MainSection from './components/MainSection/MainSection';
 import {Card, Item} from './AccessoryElements'
 import dumbbell from './assets/dumbbell-removebg-preview.png'
-import kettlebell from './assets/kettlebell-removebg-preview.png'
+import kettlebell from './assets/kettlebell.png'
 import running from './assets/running1-removebg-preview.png'
 function App() {
   const [items, setItems] = useState([{
     text: 'exercise',
-    image: dumbbell
+    image: kettlebell
   },
   {
     text: 'weights', 
-    image: kettlebell
+    image: dumbbell
   },
   {
     text:'crossfits',
@@ -30,7 +30,7 @@ function App() {
 
       <Card>
         {items.map((item) => <Item>
-          <img className='item-img' src={item.image} width={50} height={50} alt='dumbbell'/>
+          <img className='item-img' src={item.image} width={40} height={40} alt='dumbbell'/>
           <span className='item-text'>{item.text}</span>
         </Item>)}
       </Card>

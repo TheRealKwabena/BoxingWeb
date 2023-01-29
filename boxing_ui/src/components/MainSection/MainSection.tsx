@@ -5,7 +5,7 @@ import {Section, Card} from './MainSectionElements'
 const MainSection = () => {
   return (
   <Section>
-    <Card></Card>
+  
   </Section>
   )
 }

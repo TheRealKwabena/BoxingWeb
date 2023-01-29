@@ -9,7 +9,7 @@ export const Card = styled.div`
     width: 300px;
     height: 100px;
     top: 260px;
-    left: 520px;
+    left: 600px;
     box-shadow: 10px 10px 10px rgba(202, 47, 47, 0.25);
     z-index: 9;
 

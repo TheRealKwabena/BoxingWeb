@@ -1,0 +1,23 @@
+.picture {
+    height: 200px;
+    width: 400px;
+    position: absolute;
+    justify-content: space-around;
+    top: 100px;
+    left: 20px
+}
+.main-text {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+    flex-wrap: wrap;
+}
+.main-text p {
+    text-transform: uppercase;
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+
+}

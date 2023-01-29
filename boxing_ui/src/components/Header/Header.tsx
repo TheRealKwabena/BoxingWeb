@@ -1,7 +1,6 @@
 import React from 'react'
 import Logo from '../../assets/boxinglogo.png'
 import {Nav, LogoContainer, NavMenu, NavLink, SignInButton } from './HeaderElements'
-
 import './Header.css'
 const Header = () => {
   return (

@@ -9,3 +9,14 @@
 
 
 }
+.text-container {
+    display:flex;
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    font-weight: 800;
+
+}
+.text {
+    text-transform: uppercase;
+}

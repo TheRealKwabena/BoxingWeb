@@ -9,6 +9,7 @@ const TopSection = () => {
      <TextSection>
       <h3 >Fight Like a <span style={{color: '#C90B0B'}}>Champion</span></h3>
      </TextSection>
+
     </Section>
   )
 }

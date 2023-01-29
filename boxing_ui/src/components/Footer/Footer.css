@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #000000;
+    color: #FFFFFF;
+    position: absolute;
+    width: 100vw;
+
+
+}

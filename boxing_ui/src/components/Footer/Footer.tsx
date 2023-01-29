@@ -1,8 +1,10 @@
 import React from 'react'
-
+import {Body} from './Elements'
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <Body>
+      <p>Footer</p>
+    </Body>
   )
 }
 

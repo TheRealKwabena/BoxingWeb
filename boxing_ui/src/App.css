@@ -2,8 +2,8 @@
   text-align: center;
   font-style: 'sans-serif';
   position: relative;
-  width: 1440px;
-  min-height: 1700px;
+  width: 100vw;
+  min-height: 100vh;
 
   
 }
@@ -16,4 +16,17 @@
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+}
+.item-img {
+  width: 50;
+  height: 50;
+  background: transparent;
+}
+
+.item-text {
+  text-transform: uppercase;
+  font-weight:700;
+  color: #C90B0B;
+  margin-top: 10px;
+
 }

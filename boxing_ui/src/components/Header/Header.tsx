@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../assets/boxingicon.png'
+import Logo from '../../assets/boxinglogo.png'
 import {Nav, LogoContainer, NavMenu, NavLink, SignInButton } from './HeaderElements'
 
 import './Header.css'

@@ -12,11 +12,11 @@ import running from './assets/running1-removebg-preview.png'
 function App() {
   const [items, setItems] = useState([{
     text: 'exercise',
-    image: dumbbell
+    image: kettlebell
   },
   {
     text: 'weights', 
-    image: kettlebell
+    image: dumbbell
   },
   {
     text:'crossfits',

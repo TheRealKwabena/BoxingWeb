@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Section = styled.div `
     
-    min-height: 60vh;
+    min-height: 400px;
     width: 100vw;
     display:flex;
     justify-content: space-around;

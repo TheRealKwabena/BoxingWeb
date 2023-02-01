@@ -11,3 +11,14 @@ Here, the user will provide their credentials which include the name, email and 
 
 #### First Prototype
 ![First SignUp Page](/boxing_ui/public/Desktop%20-%201Register1.jpg)
+
+
+#### Second Prototype
+![Second SignUp Page](/boxing_ui/public/Desktop%20-%201Register2.jpg)
+
+## Login Page
+
+Tbd.
+
+## Landing Page
+![Landing Page](/boxing_ui/public/Desktop%20-%201LandingPage.jpg)

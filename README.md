@@ -10,3 +10,4 @@ Here, the user will provide their credentials which include the name, email and 
 **Prototypes** have been made and the appropriate one will be choosen
 
 #### First Prototype
+![First SignUp Page](/boxing_ui/public/Desktop%20-%201Register1.jpg)

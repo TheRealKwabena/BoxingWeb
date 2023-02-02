@@ -22,11 +22,11 @@ Here, the user will provide their credentials which include the name, email and 
 ![Login Page](/boxing_ui/public/Desktop%20-%201Second%20Login.jpg)
 
 #### Second Prototype
-![Login Page](/boxing_ui/public/Desktop%20-%2011st%20Login.png)
+![Login Page](/boxing_ui/public/Login%20Page%20B.jpg)
 
 
 #### Third Prototype
-![Login Page](/boxing_ui/public/Frame%20112nd%20Login.png)
+![Login Page](/boxing_ui/public/Login%20Page%20C.png)
 
 
 ## Landing Page

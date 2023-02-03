@@ -5,11 +5,13 @@ import TopSection from './components/TopSection/TopSection';
 
 import Footer from './components/Footer/Footer'
 import MainSection from './components/MainSection/MainSection';
+import LoginPage from './pages/LoginPage';
 import {Card, Item} from './AccessoryElements'
 import dumbbell from './assets/dumbbell-removebg-preview.png'
 import kettlebell from './assets/kettlebell.png'
 import running from './assets/running1-removebg-preview.png'
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   const [items, setItems] = useState([{
     text: 'exercise',
     image: kettlebell
@@ -25,6 +27,7 @@ function App() {
 ])
   return (
     <div className='App'>
+      {loggedIn ? <>
       <TopSection/>
       <MainSection/>
 
@@ -35,6 +38,7 @@ function App() {
         </Item>)}
       </Card>
       <Footer/>
+      </> : (<LoginPage/>) }
     </div>
   );
 }

@@ -11,3 +11,126 @@ code {
     monospace;
 }
 
+.login-form {
+  position: absolute;
+  left: 72px;
+  top: 300px;
+  width: 445px;
+  height: 441px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form-control {
+  display: flex;
+  align-items: center;
+}
+.login-form label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 2px;
+  color: #353535;
+  font-weight: bolder;
+  font-size: 12px;
+}
+.login-form input {
+  width: 300px;
+  height: 30px;
+  border: none;
+  background-color: #FBFAFA;
+  box-shadow: 0px 4px 4px rgba(53, 51, 51, 0.25);
+}
+
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin:20px 0px;
+}
+button  {
+  margin: 5px 0;
+  border-radius: 20px;
+}
+#main-login-button {
+  color: #FFFFFF;
+  padding: 12px 130px;
+  background-color: #000000 ;
+}
+#google-login-button {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 78px;
+  padding-right: 78px
+
+  
+}
+#google-login-button div {
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#google-image {
+  height: 30px;
+  width: 30px;
+  padding: 0px 0px;
+  margin-top: 0px
+}
+.welcome-text {
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  left: 76px;
+  top: 150px;
+}
+#greetings {
+  text-transform: none;
+  font-family: 'Open Sans';
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 0
+}
+#message {
+  font-size: 13px;
+  color: #353535;
+
+}
+.logo-container {
+  display:flex;
+  height: 30px;
+  position: absolute;
+  left: 74px;
+  top:50px;
+  align-items: center;
+  justify-self: center;
+  text-align: center;
+}
+.logo-container p {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 2.0rem;
+  text-transform: uppercase;
+}
+
+
+.boxinglogo{
+  height: 30px;
+  width: 30px;
+  margin-right: 10px
+
+  
+}
+.front-image {
+  position: absolute;
+  left: 780px;
+  height: 700px;
+  width: 600px;
+  top: 18px;
+  border-radius: 20px;
+}

@@ -33,13 +33,15 @@ code {
   font-weight: bolder;
   font-size: 12px;
 }
-.login-form input {
+
+.input {
   width: 300px;
   height: 30px;
   border: none;
   background-color: #FBFAFA;
   box-shadow: 0px 4px 4px rgba(53, 51, 51, 0.25);
 }
+
 
 
 .buttons {
@@ -57,18 +59,36 @@ button  {
   color: #FFFFFF;
   padding: 12px 130px;
   background-color: #000000 ;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+#main-login-button:hover {
+  color: #000000;
+  background-color:#FFFFFF;
+  box-shadow: 0px 4px 4px rgba(53, 51, 51, 0.25);
+  border: none;
+
 }
 #google-login-button {
   background-color: #FFFFFF;
   color: #000000;
-  border: 1px solid;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(53, 51, 51, 0.25);
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 78px;
-  padding-right: 78px
-
+  padding-right: 78px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
   
 }
+#google-login-button:hover {
+  background-color: #476BB0;
+  color: #FFFFFF;
+
+}
+
+
 #google-login-button div {
   height: 35px;
   display: flex;
@@ -133,4 +153,13 @@ button  {
   width: 600px;
   top: 18px;
   border-radius: 20px;
+}
+.links {
+  margin-top: 10px
+}
+.links a {
+  text-decoration: underline;
+  color: #476BB0;
+  margin-right: 60px;
+  font-size: 12px;
 }

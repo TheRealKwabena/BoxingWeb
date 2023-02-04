@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import googlelogo from '../../assets/googleicon.png'
-
+import {Link} from 'react-router-dom'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -54,7 +54,7 @@ const LoginForm = () => {
         </div>
 
       
-        <span className='links'><a href=''>Don't have an account?</a><a href=''>Forgot Password?</a></span>
+        <span className='links'><Link to='/register' className='links-a'>Don't have an account?</Link><Link to='/' className='links-a'>Forgot Password?</Link></span>
     
       
       </form>

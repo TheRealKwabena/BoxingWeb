@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from '../../assets/boxinglogo.png'
 import {Nav, LogoContainer, NavMenu, NavLink, SignInButton } from './HeaderElements'
+import {Link} from 'react-router-dom'
 import './Header.css'
 const Header = () => {
   return (
@@ -16,7 +17,7 @@ const Header = () => {
             <li><a href='index.html'>ABOUT</a></li>
             <li><a href='index.html'>LOCATION</a></li>
             <li><a href='index.html'>CONTACT</a></li>
-            <li><SignInButton className='btn'>SIGN UP</SignInButton></li>
+            <li><Link to='/register'><SignInButton className='btn'>SIGN UP</SignInButton></Link></li>
         </ul>
     </NavMenu>
     

@@ -11,7 +11,7 @@ code {
     monospace;
 }
 
-.login-form {
+.login-form, .register-form {
   position: absolute;
   left: 72px;
   top: 300px;
@@ -33,6 +33,15 @@ code {
   font-weight: bolder;
   font-size: 12px;
 }
+.register-form label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 2px;
+  color: #353535;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
 
 .input {
   width: 300px;
@@ -62,7 +71,14 @@ button  {
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
-#main-login-button:hover {
+#main-register-button {
+  color: #FFFFFF;
+  padding: 12px 100px;
+  background-color: #000000 ;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+#main-login-button:hover, #main-register-button:hover {
   color: #000000;
   background-color:#FFFFFF;
   box-shadow: 0px 4px 4px rgba(53, 51, 51, 0.25);
@@ -82,7 +98,21 @@ button  {
   cursor: pointer;
   
 }
-#google-login-button:hover {
+#google-register-button {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(53, 51, 51, 0.25);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 78px;
+  padding-right: 60px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  
+}
+
+#google-login-button:hover, #google-register-button:hover {
   background-color: #476BB0;
   color: #FFFFFF;
 
@@ -94,6 +124,15 @@ button  {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+}
+#google-register-button div {
+  margin-left:-10px;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
 }
 #google-image {
   height: 30px;
@@ -157,9 +196,21 @@ button  {
 .links {
   margin-top: 10px
 }
-.links a {
+.links-a {
   text-decoration: underline;
   color: #476BB0;
   margin-right: 60px;
   font-size: 12px;
+}
+.login-link {
+  margin-top: 0px;
+  margin-left: 50px;
+  
+}
+.login-link-a {
+  text-decoration: underline;
+  color: #476BB0;
+  font-size: 12px;
+
+
 }

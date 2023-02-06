@@ -9,24 +9,15 @@ Here, the user will provide their credentials which include the name, email and 
 
 **Prototypes** have been made and the appropriate one will be choosen
 
-#### First Prototype
-![First SignUp Page](/boxing_ui/public/Desktop%20-%201Register1.jpg)
+#### Chosen Prototype
+![First SignUp Page](/boxing_ui/public/Desktop%20-%201RegisterPage.jpg)
 
 
-#### Second Prototype
-![Second SignUp Page](/boxing_ui/public/Desktop%20-%201Register2.jpg)
 
 ## Login Page
 
-#### First Prototype
-![Login Page](/boxing_ui/public/Desktop%20-%201Second%20Login.jpg)
-
-#### Second Prototype
-![Login Page](/boxing_ui/public/Login%20Page%20B.jpg)
-
-
-#### Third Prototype
-![Login Page](/boxing_ui/public/Login%20Page%20C.png)
+#### Chosen Prototype
+![Login Page](/boxing_ui/public/Desktop%20-%202Login%20Page.png)
 
 
 ## Landing Page

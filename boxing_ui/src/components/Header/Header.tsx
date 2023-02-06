@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../assets/boxinglogo.png'
+import Logo from '../../assets/glovesicon.png'
 import {Nav, LogoContainer, NavMenu, NavLink, SignInButton } from './HeaderElements'
 import {Link} from 'react-router-dom'
 import './Header.css'
@@ -13,10 +13,10 @@ const Header = () => {
     </LogoContainer>
     <NavMenu>
         <ul id='navbar'>
-            <li><a href='index.html'>HOME</a></li>
-            <li><a href='index.html'>ABOUT</a></li>
-            <li><a href='index.html'>LOCATION</a></li>
-            <li><a href='index.html'>CONTACT</a></li>
+            <li><Link to='/'>HOME</Link></li>
+            <li><Link to='/'>ABOUT</Link></li>
+            <li><Link to='/'>LOCATION</Link></li>
+            <li><Link to='/'>CONTACT</Link></li>
             <li><Link to='/register'><SignInButton className='btn'>SIGN UP</SignInButton></Link></li>
         </ul>
     </NavMenu>

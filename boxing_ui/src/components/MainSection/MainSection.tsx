@@ -1,7 +1,6 @@
-import React from 'react'
-import {Section, PictureContainer} from './MainSectionElements'
+import {Section} from './MainSectionElements'
 import pic from '../../assets/girlfight.jpg'
-import Button from '../Button'
+
 const MainSection = () => {
   return (
   <Section>
@@ -13,9 +12,6 @@ const MainSection = () => {
       <p>How we got started in this business</p>
       <button className='button'>Click to see more</button>
     </div>
-    
-  
-
   </Section>
   )
 }

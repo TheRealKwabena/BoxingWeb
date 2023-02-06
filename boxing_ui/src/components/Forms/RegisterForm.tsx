@@ -3,7 +3,6 @@ import {useState} from 'react'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import googlelogo from '../../assets/googleicon.png'
@@ -54,14 +53,13 @@ const RegisterForm = () => {
         </button>
     </div>
 
-  
+ 
     <span className='login-link'><Link className='login-link-a' to='/login'>Already have an account?</Link></span>
-
+  
+  
+  
   
   </form>
-
-
-
   )
 }
 

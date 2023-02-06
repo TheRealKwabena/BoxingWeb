@@ -2,7 +2,7 @@ import React from 'react'
 import {Body, SocialMediaContainer, FooterText} from './Elements'
 import {FaLinkedin, FaFacebook, FaInstagram} from 'react-icons/fa'
 import {BsFillEnvelopeFill} from 'react-icons/bs'
-
+import {Link} from 'react-router-dom'
 import './Footer.css'
 const Footer = () => {
   return (
@@ -11,9 +11,9 @@ const Footer = () => {
         <p id='text'>Ready for your <span style={{color: '#C90B0B'}}>next </span>lesson?</p>
         <SocialMediaContainer>
         <ul id='icons'>
-          <li> <a href='linkedin.com'> <FaLinkedin/></a></li>
-          <li> <a href='facebook.com'> <FaFacebook/></a></li>
-          <li> <a href='instagram.com'> <FaInstagram/></a></li>
+          <li> <Link to='linkedin.com'> <FaLinkedin/></Link></li>
+          <li> <Link to='facebook.com'> <FaFacebook/></Link></li>
+          <li> <Link to='instagram.com'> <FaInstagram/></Link></li>
         </ul>   
       </SocialMediaContainer>
       </div>

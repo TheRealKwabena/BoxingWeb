@@ -27,7 +27,7 @@ const LoginForm = () => {
         <label htmlFor='email'>Email</label>
         <input  type='email' id='email' className='input' value={email} autoComplete='off'  onChange={(e) => setEmail(e.target.value)}></input>
         <label htmlFor="password">Password</label>
-          <OutlinedInput
+          <OutlinedInput 
             className="input"
             id='password'
             type={showPassword ? 'text' : 'password'}

@@ -7,12 +7,43 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import googlelogo from '../../assets/googleicon.png'
 import {Link} from 'react-router-dom'
+import { Customer } from '../../App';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const RegisterForm = () => {
+
+export interface IRegisterProps {
+  addCustomer: (customer: Customer) => void
+}
+
+const RegisterForm: React.FC<IRegisterProps> = ({addCustomer}) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = React.useState(false);
+
+
+    const registerCustomer = (e: any) => {
+      e.preventDefault();
+      if(name.length > 0 || email.length > 0 || password.length> 0) {
+        toast.warn("Fill all fields");
+        return;
+      }
+      else {
+        const customer: Customer =  {
+          "name" : name,
+          "email": email,
+          "password": password
+        }
+        addCustomer(customer);
+        
+        
+
+        setName("");
+        setEmail("");
+        setPassword("")
+      }
+    }
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -47,7 +78,7 @@ const RegisterForm = () => {
       />
        
     <div className='buttons'>
-        <button id='main-register-button'>Create Account</button>
+        <button id='main-register-button' onClick={registerCustomer}>Create Account</button>
         <button id='google-register-button'>
         <div><img src={googlelogo} id='google-image'/>Continue With Google</div>
         </button>
@@ -56,7 +87,7 @@ const RegisterForm = () => {
  
     <span className='login-link'><Link className='login-link-a' to='/login'>Already have an account?</Link></span>
   
-  
+      <ToastContainer/>
   
   
   </form>

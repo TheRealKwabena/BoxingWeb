@@ -2,7 +2,12 @@ import React from 'react'
 import Logo from '../assets/glovesicon.png'
 import FrontPage from '../assets/frontpage.jpg'
 import RegisterForm from '../components/Forms/RegisterForm'
-const RegisterPage = () => {
+import { Customer } from '../App'
+export interface IRegisterProps {
+  addCustomer: (customer: Customer) => void
+}
+
+const RegisterPage: React.FC<IRegisterProps> = ({addCustomer}) => {
     return (
         <>
         <div className='logo-container'>
@@ -13,7 +18,7 @@ const RegisterPage = () => {
         <p id='greetings'>Create an account</p>
         <p id='message'>Get Started with 10% off your first training</p>
         </div>
-        <RegisterForm/>
+        <RegisterForm addCustomer={addCustomer}/>
         <img src={FrontPage} className='front-image' />
         </>
       )

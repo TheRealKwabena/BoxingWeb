@@ -5,7 +5,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-
+import Protected from './auxiliaries/Protected';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -28,7 +28,7 @@ function App() {
   
 
   const [customers, setCustomers] = useState<CustomerResponse[]>([]);
-  const [loggedIn, setIsLoggedIn] = useState(false);
+  const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [token, setToken] = useState<any>(null);
 
  
@@ -51,6 +51,7 @@ function App() {
         toast.success("User added succesfully", {
           position: "top-center"
         })
+        window.location.replace("/login");
       }
       
 
@@ -78,6 +79,8 @@ function App() {
         const data = response.data;
         setToken(data.accessToken);
         console.log(token)
+        setIsLoggedIn(true);
+        window.location.replace("/home");
        
         toast.success("Logged in succesfully", {
           position: "top-center"
@@ -101,7 +104,8 @@ function App() {
     <BrowserRouter>
     <div className='App'>
     <Routes>
-      <Route path='/' element={<HomePage/>}></Route>
+     
+      <Route path='/home' element={<HomePage/>}></Route>
       <Route path='/login' element={<LoginPage loginUser={loginUser}/>}></Route>
       <Route path='/register' element={<RegisterPage addUser={addUser}/>}></Route> 
       

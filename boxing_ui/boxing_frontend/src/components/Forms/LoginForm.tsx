@@ -8,8 +8,12 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
-
-const LoginForm = () => {
+import { LoginRequest } from '../../App';
+import { ToastContainer, toast } from 'react-toastify';
+export interface ILoginProps {
+  loginUser: (loginRequest: LoginRequest) => void
+}
+const LoginForm: React.FC<ILoginProps>= ({loginUser}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
@@ -20,6 +24,27 @@ const LoginForm = () => {
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
+  const authenticateUser = (e: any) => {
+    e.preventDefault();
+    if(password.length <= 0 || email.length <= 0 ) {
+    toast.error("Fill all fields before saving", {
+      position: "top-center"
+    });
+    return;
+  }
+    else {
+      const loginRequest: LoginRequest =  {
+        "email": email,
+        "password": password
+      }
+      loginUser(loginRequest);
+      
+      
+
+      setEmail("");
+      setPassword("")
+    }
+  }
 
   return (
    
@@ -47,7 +72,7 @@ const LoginForm = () => {
           />
            
         <div className='buttons'>
-        <button id='main-login-button'>Login</button>
+        <button id='main-login-button' onClick={authenticateUser}>Login</button>
         <button id='google-login-button'>
           <div><img src={googlelogo} id='google-image'/>Login With Google</div>
         </button>

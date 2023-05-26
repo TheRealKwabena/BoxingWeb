@@ -4,10 +4,10 @@ import FrontPage from '../assets/frontpage.jpg'
 import RegisterForm from '../components/Forms/RegisterForm'
 import { Customer } from '../App'
 export interface IRegisterProps {
-  addCustomer: (customer: Customer) => void
+  addUser: (customer: Customer) => void
 }
 
-const RegisterPage: React.FC<IRegisterProps> = ({addCustomer}) => {
+const RegisterPage: React.FC<IRegisterProps> = ({addUser}) => {
     return (
         <>
         <div className='logo-container'>
@@ -18,7 +18,7 @@ const RegisterPage: React.FC<IRegisterProps> = ({addCustomer}) => {
         <p id='greetings'>Create an account</p>
         <p id='message'>Get Started with 10% off your first training</p>
         </div>
-        <RegisterForm addCustomer={addCustomer}/>
+        <RegisterForm addUser={addUser}/>
         <img src={FrontPage} className='front-image' />
         </>
       )

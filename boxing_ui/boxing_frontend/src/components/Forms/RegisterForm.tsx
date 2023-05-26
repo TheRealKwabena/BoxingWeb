@@ -13,29 +13,31 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export interface IRegisterProps {
-  addCustomer: (customer: Customer) => void
+  addUser: (customer: Customer) => void
 }
 
-const RegisterForm: React.FC<IRegisterProps> = ({addCustomer}) => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = React.useState(false);
 
 
-    const registerCustomer = (e: any) => {
+    const createUser = (e: any) => {
       e.preventDefault();
-      if(name.length > 0 || email.length > 0 || password.length> 0) {
-        toast.warn("Fill all fields");
-        return;
-      }
+      if(name.length <= 0 || password.length <= 0 || email.length <= 0 ) {
+      toast.error("Fill all fields before saving", {
+        position: "top-center"
+      });
+      return;
+    }
       else {
         const customer: Customer =  {
           "name" : name,
           "email": email,
           "password": password
         }
-        addCustomer(customer);
+        addUser(customer);
         
         
 
@@ -76,12 +78,13 @@ const RegisterForm: React.FC<IRegisterProps> = ({addCustomer}) => {
         value={password} autoComplete='off' 
         onChange={(e) => setPassword(e.target.value)}
       />
-       
-    <div className='buttons'>
-        <button id='main-register-button' onClick={registerCustomer}>Create Account</button>
+        <button id='main-register-button' onClick={createUser}>Create Account</button>
         <button id='google-register-button'>
         <div><img src={googlelogo} id='google-image'/>Continue With Google</div>
         </button>
+       
+    <div className='buttons'>
+      
     </div>
 
  

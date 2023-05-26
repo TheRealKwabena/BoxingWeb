@@ -25,6 +25,7 @@ const HomePage = () => {
     }
     ])
   return (
+    /*
     <>
     {!loggedIn ? <>
         <TopSection/>
@@ -37,9 +38,21 @@ const HomePage = () => {
           </Item>)}
         </Card>
         <Footer/>
-        </> : (<LoginPage/>) }
+        </> : (<LoginPage loginUser={loginUser}/>) }
     </>
-    
+    */
+    <>
+    <TopSection/>
+        <MainSection/>
+  
+        <Card>
+          {items.map((item) => <Item>
+            <img className='item-img' src={item.image} width={40} height={40} alt='dumbbell'/>
+            <span className='item-text'>{item.text}</span>
+          </Item>)}
+        </Card>
+        <Footer/>
+        </>
   )
 }
 

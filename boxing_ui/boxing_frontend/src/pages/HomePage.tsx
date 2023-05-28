@@ -9,7 +9,11 @@ import TopSection from '../components/TopSection/TopSection';
 import Footer from '../components/Footer/Footer'
 import MainSection from '../components/MainSection/MainSection';
 import LoginPage from '../pages/LoginPage';
-const HomePage = () => {
+export interface ILogoutProps {
+  logoutUser: () => void
+}
+const HomePage: React.FC<ILogoutProps> = ({logoutUser}) => {
+
     const [loggedIn, setLoggedIn] = useState(false);
     const [items, setItems] = useState([{
         text: 'exercise',
@@ -42,7 +46,7 @@ const HomePage = () => {
     </>
     */
     <>
-    <TopSection/>
+    <TopSection logoutUser={logoutUser}/>
         <MainSection/>
   
         <Card>

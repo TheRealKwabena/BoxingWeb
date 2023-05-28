@@ -45,4 +45,9 @@ router.get("/api/currentuser", validateToken, async(req, res) => {
     return res.status(200).json(req.customer)
 })
 
+router.delete("/api/customers", async(req, res) => {
+    const customers = await Customer.deleteMany({});
+    res.status(204).json(customers)
+})
+
 module.exports = router;

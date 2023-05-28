@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
@@ -14,6 +14,10 @@ export interface Customer {
   email: string,
   password: string
   }
+
+export interface AuthConfig {
+  Authorization: string
+}  
 export interface CustomerResponse {
   id: string,
   name: string, 
@@ -28,9 +32,18 @@ function App() {
   
 
   const [customers, setCustomers] = useState<CustomerResponse[]>([]);
-  const [loggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [token, setToken] = useState<any>(null);
+  const [loggedIn, setIsLoggedIn] = useState<Boolean>(false);
+  const [token, setToken] = useState<string>("");
 
+  /*useEffect(
+    () => {
+      const current_token = localStorage.getItem("token");
+      console.log(current_token);
+      
+    }, []
+
+  )
+  */
  
 
 
@@ -51,7 +64,7 @@ function App() {
         toast.success("User added succesfully", {
           position: "top-center"
         })
-        window.location.replace("/login");
+        window.location.replace("/");
       }
       
 
@@ -79,6 +92,7 @@ function App() {
         const data = response.data;
         setToken(data.accessToken);
         console.log(token)
+        localStorage.setItem('token', response.data.accessToken);
         setIsLoggedIn(true);
         window.location.replace("/home");
        
@@ -98,6 +112,38 @@ function App() {
 
   }
 
+  //Logout Functionality
+
+  const logout = async() => {
+    const getToken = localStorage.getItem('token');
+    console.log(getToken)
+    if(getToken === "null") {
+      toast.error("Email or password incorrect", {
+        position: "top-center"
+      })
+    }
+    else {
+      //const combinedToken = "Bearer " + getToken;
+      //const headers: AuthConfig = {Authorization : combinedToken}
+      axios.post("http://localhost:8080/api/auth/logout", {
+        headers: {
+         
+          authorization: `Bearer ${getToken}`,
+          
+        }
+      }).then((response) => {
+        if(response.data === "Logged out successfully") {
+          localStorage.setItem("token", "null");
+          window.location.replace("/");
+          
+        }
+        else if(response.status === 401) {
+          toast.error("Invalid request", {position: "top-center"})
+        } 
+      })
+    }
+  }
+
 
   
   return (
@@ -105,8 +151,8 @@ function App() {
     <div className='App'>
     <Routes>
      
-      <Route path='/home' element={<HomePage/>}></Route>
-      <Route path='/login' element={<LoginPage loginUser={loginUser}/>}></Route>
+      <Route path='/home' element={<HomePage logoutUser={logout}/>}></Route>
+      <Route path='/' element={<LoginPage loginUser={loginUser}/>}></Route>
       <Route path='/register' element={<RegisterPage addUser={addUser}/>}></Route> 
       
     </Routes>

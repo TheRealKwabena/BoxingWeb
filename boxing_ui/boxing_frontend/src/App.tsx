@@ -116,17 +116,29 @@ function App() {
 
   const logout = async() => {
     const getToken = localStorage.getItem('token');
+    console.log(getToken)
     if(getToken === "null") {
       toast.error("Email or password incorrect", {
         position: "top-center"
       })
     }
     else {
-      const headers: AuthConfig = {Authorization : "Bearer " + getToken}
-      axios.post("http://localhost:8080/api/auth/logout", headers).then((response) => {
-        if(response.data === "Logged out successfully") {
-          localStorage.clear();
+      //const combinedToken = "Bearer " + getToken;
+      //const headers: AuthConfig = {Authorization : combinedToken}
+      axios.post("http://localhost:8080/api/auth/logout", null, {
+        headers: {
+         
+          authorization: `Bearer ${getToken}`,
           
+        }
+      }).then((response) => {
+        if(response.data === "Logged out successfully") {
+          localStorage.setItem("token", "null");
+          window.location.replace("/");
+          
+        }
+        else if(response.status === 401) {
+          toast.error("Invalid request", {position: "top-center"})
         } 
       })
     }

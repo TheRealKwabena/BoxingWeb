@@ -18,9 +18,8 @@ const Header:React.FC<ILogoutProps> = ({logoutUser}) => {
             <li><Link to='/home'>ABOUT</Link></li>
             <li><Link to='/home'>LOCATION</Link></li>
             <li><Link to='/home'>CONTACT</Link></li>
-            <li><Link to='/' onClick={
-                logoutUser
-            }><SignInButton className='btn'>SIGN OUT</SignInButton></Link></li>
+            <li><SignInButton onClick={
+                logoutUser} className='btn'>SIGN OUT</SignInButton></li>
         </ul>
     </NavMenu>
     

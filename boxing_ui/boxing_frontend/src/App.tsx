@@ -125,7 +125,7 @@ function App() {
     else {
       //const combinedToken = "Bearer " + getToken;
       //const headers: AuthConfig = {Authorization : combinedToken}
-      axios.post("http://localhost:8080/api/auth/logout", {
+      axios.post("http://localhost:8080/api/auth/logout", null , {
         headers: {
          
           authorization: `Bearer ${getToken}`,

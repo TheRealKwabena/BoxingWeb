@@ -80,12 +80,20 @@ function App() {
    
     
     axios.post("http://localhost:8080/api/auth/login", loginRequest).then((response) => {
-      if(response.status === 400) {
-        toast.error("Email or password incorrect", {
+      if(response.data.error === "Authorization Error") {
+        console.log(response.data.message);
+        toast.error("Incorrect Credentials", {
+          position: "top-center"
+        })
+       
+
+      }
+      else if(response.data.error === "Authentication Error") {
+        console.log(response.data.message);
+        toast.warning("Already logged in", {
           position: "top-center"
         })
         
-
       }
       else {
         console.log(response.data);

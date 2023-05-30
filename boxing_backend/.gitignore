@@ -14,7 +14,6 @@
 
 ## Node Modules Production ##
 boxing_backend/node_modules
-boxing_ui/boxing_frontend/node_modules
 
 # misc
 .DS_Store

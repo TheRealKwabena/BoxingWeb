@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
+import ForgotPassword from './pages/ForgotPassword';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Protected from './auxiliaries/Protected';
@@ -162,6 +163,7 @@ function App() {
       <Route path='/home' element={<HomePage logoutUser={logout}/>}></Route>
       <Route path='/' element={<LoginPage loginUser={loginUser}/>}></Route>
       <Route path='/register' element={<RegisterPage addUser={addUser}/>}></Route> 
+      <Route path="/forgot-password" element={<ForgotPassword />}></Route>
       
     </Routes>
     <ToastContainer/>

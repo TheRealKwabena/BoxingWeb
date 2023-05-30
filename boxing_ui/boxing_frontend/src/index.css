@@ -76,6 +76,15 @@ button  {
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
+
+#forgot-password-button {
+  margin-top: 50px;
+  color: #FFFFFF;
+  padding: 12px 130px;
+  background-color: #9e3434 ;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
 #main-register-button {
   color: #FFFFFF;
   padding: 12px 100px;

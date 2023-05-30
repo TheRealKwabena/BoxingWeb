@@ -88,7 +88,7 @@ const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
     </div>
 
  
-    <span className='login-link'><Link className='login-link-a' to='/login'>Already have an account?</Link></span>
+    <span className='login-link'><Link className='login-link-a' to='/'>Already have an account?</Link></span>
   
       <ToastContainer/>
   

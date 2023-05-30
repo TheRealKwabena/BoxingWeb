@@ -14,7 +14,8 @@ router.post("/api/auth/register", async (req, res) =>  {
     };
     const existing_user = await Customer.findOne({email});
     if(existing_user) {
-        return res.status(400).send("Email address already taken");
+        return res.status(200).json({message: "Email address already taken" , error: "Authentication Error"});
+        
     }
     else {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -33,7 +34,7 @@ router.post("/api/auth/register", async (req, res) =>  {
             });
         }
         else {
-            return res.status(400).send("Account could not be created")
+            return  res.status(200).json({message: "Account could not be created!", error: "Authorization Error"});
         }
     }
 })
@@ -44,38 +45,44 @@ router.post("/api/auth/login", async(req, res) => {
     if( !email|| !password ) {
         return res.status(400).send("Provide all fields before registering");
     }
-    const existing_customer = await Customer.findOne({email});
+    try {
+        const existing_customer = await Customer.findOne({email});
+        if(!await bcrypt.compare(password, existing_customer.password)) {
+            return res.status(200).json({message: "Incorrect Credentials!", error: "Authorization Error"});
+        }
 
-    if(existing_customer && existing_customer.accessToken === null && await bcrypt.compare(password, existing_customer.password)) {
-        const access_token = jwt.sign({
-            customer: {
-                name: existing_customer.name,
-                email: existing_customer.email,
-                id: existing_customer._id
+        if(existing_customer && existing_customer.accessToken === null && await bcrypt.compare(password, existing_customer.password)) {
+            const access_token = jwt.sign({
+                customer: {
+                    name: existing_customer.name,
+                    email: existing_customer.email,
+                    id: existing_customer._id
+                },
+                
             },
-            
-        },
-        process.env.SECRET_KEY,
-        {expiresIn: '1h'})
-        const new_customer = await Customer.findOneAndUpdate({email}, {accessToken: access_token});
-        res.status(200).json({
-            id: new_customer._id,
-            email: new_customer.email,
-            accessToken: access_token
-        })
+            process.env.SECRET_KEY,
+            {expiresIn: '1h'})
+            const new_customer = await Customer.findOneAndUpdate({email}, {accessToken: access_token});
+            res.status(200).json({
+                id: new_customer._id,
+                email: new_customer.email,
+                accessToken: access_token
+            })
+        }
+        else if(existing_customer.accessToken !== null) {
+            return res.status(200).json({message: "Already logged in!", error: "Authentication Error"});
+            /*
+            return res.status(400).json ({
+                message: "Already logged in!",
+                accessToken: existing_customer.accessToken
+            })
+            */
+        }
+    
+    } catch(err) {
+        return res.status(200).json({message: "Incorrect Credentials!", error: "Authorization Error"});
     }
-    else if(existing_customer.accessToken !== null) {
-        return res.status(400).send("Already logged in!");
-        /*
-        return res.status(400).json ({
-            message: "Already logged in!",
-            accessToken: existing_customer.accessToken
-        })
-        */
-    }
-    else {
-        return res.status(400).send("Email or password is not correct");
-    }
+    
 })
 
 router.post("/api/auth/logout", validateToken, async(req, res) => {

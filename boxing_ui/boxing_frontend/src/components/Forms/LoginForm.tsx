@@ -79,7 +79,9 @@ const LoginForm: React.FC<ILoginProps>= ({loginUser}) => {
         </div>
 
       
-        <span className='links'><Link to='/register' className='links-a'>Don't have an account?</Link><Link to='/' className='links-a'>Forgot Password?</Link></span>
+        <span className='links'><Link to='/register' className='links-a'>Don't have an account?</Link>
+        <Link to='/forgot-password' className='links-a'>Forgot Password?</Link>
+        </span>
     
       
       </form>

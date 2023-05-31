@@ -10,12 +10,20 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import { LoginRequest } from '../../App';
 import { ToastContainer, toast } from 'react-toastify';
+import { useEffect } from 'react';
+import { useForm } from "react-hook-form";
 export interface ILoginProps {
   loginUser: (loginRequest: LoginRequest) => void
 }
 const LoginForm: React.FC<ILoginProps>= ({loginUser}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+ 
   
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -50,7 +58,8 @@ const LoginForm: React.FC<ILoginProps>= ({loginUser}) => {
    
       <form className='login-form'>
         <label htmlFor='email'>Email</label>
-        <input  type='email' id='email' className='input' value={email} autoComplete='off'  onChange={(e) => setEmail(e.target.value)}></input>
+        <input  type='email' id='email' className='input' value={email} autoComplete='off' 
+        {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })} onChange={(e) => setEmail(e.target.value)} ></input>
         <label htmlFor="password">Password</label>
           <OutlinedInput 
             className="input"
@@ -72,7 +81,7 @@ const LoginForm: React.FC<ILoginProps>= ({loginUser}) => {
           />
            
         <div className='buttons'>
-        <button id='main-login-button' onClick={authenticateUser}>Login</button>
+        <button id='main-login-button' onClick={handleSubmit(authenticateUser)}>Login</button>
         <button id='google-login-button'>
           <div><img src={googlelogo} id='google-image'/>Login With Google</div>
         </button>
@@ -82,6 +91,7 @@ const LoginForm: React.FC<ILoginProps>= ({loginUser}) => {
         <span className='links'><Link to='/register' className='links-a'>Don't have an account?</Link>
         <Link to='/forgot-password' className='links-a'>Forgot Password?</Link>
         </span>
+        {errors.email && <span style={{color: "red", fontSize: "20px"}}>Invalid email format</span>}
     
       
       </form>

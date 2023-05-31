@@ -29,6 +29,9 @@ export interface LoginRequest{
   email: string,
   password: string
 }
+export interface ForgotPasswordEmail {
+  email: String
+}
 function App() {
   
 
@@ -109,10 +112,7 @@ function App() {
           position: "top-center"
         })
       }
-      
-
-     
-
+  
      }
      
      ).catch((err) => {
@@ -153,6 +153,26 @@ function App() {
     }
   }
 
+  const forgotPassword = async(forgotPasswordEmail: ForgotPasswordEmail) => {
+    axios.patch("http://localhost:8080/api/auth/forgot-password", forgotPasswordEmail).then((response) => {
+      if(response.data.error === "Authorization Error") {
+        toast.error(response.data.message,  {
+          position: "top-center" 
+      }) 
+    }
+      else {
+        toast.success("Email sent to your address", {
+          position: "top-center"
+        })
+      }
+         
+        
+      
+   
+  })
+
+  }
+
 
   
   return (
@@ -163,7 +183,7 @@ function App() {
       <Route path='/home' element={<HomePage logoutUser={logout}/>}></Route>
       <Route path='/' element={<LoginPage loginUser={loginUser}/>}></Route>
       <Route path='/register' element={<RegisterPage addUser={addUser}/>}></Route> 
-      <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+      <Route path="/forgot-password" element={<ForgotPassword forgotPassword={forgotPassword} />}></Route>
       
     </Routes>
     <ToastContainer/>

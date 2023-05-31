@@ -30,7 +30,7 @@ const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
 
 
     const createUser = (e: any) => {
-      e.preventDefault();
+      
       if(name.length <= 0 || password.length <= 0 || email.length <= 0 ) {
       toast.error("Fill all fields before saving", {
         position: "top-center"
@@ -87,7 +87,7 @@ const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
         value={password} autoComplete='off' 
         onChange={(e) => setPassword(e.target.value)}
       />
-        <button id='main-register-button' onClick={handleSubmit(createUser)}>Create Account</button>
+        <button id='main-register-button' onClick={createUser}>Create Account</button>
         <button id='google-register-button'>
         <div><img src={googlelogo} id='google-image'/>Continue With Google</div>
         </button>
@@ -100,7 +100,7 @@ const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
     <span className='login-link'><Link className='login-link-a' to='/'>Already have an account?</Link></span>
   
       <ToastContainer/>
-      {errors.email && <span style={{color: "red", fontSize: "20px"}}>Invalid email format</span>}
+      
   
   
   </form>

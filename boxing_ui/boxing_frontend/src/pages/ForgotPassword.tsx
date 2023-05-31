@@ -5,7 +5,14 @@ import Logo from '../assets/glovesicon.png'
 import FrontPage from '../assets/frontpage.jpg'
 import { Link } from 'react-router-dom'
 import {useForm} from 'react-hook-form'
-const ForgotPassword = () => {
+import { ForgotPasswordEmail } from '../App'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+export interface IForgotPassword{
+  forgotPassword: (forgotPasswordEmail: ForgotPasswordEmail) => void
+}
+
+const ForgotPassword: React.FC<IForgotPassword> = ({forgotPassword}) => {
     const [email, setEmail] = useState<string>("")
     const {
       register,
@@ -13,6 +20,24 @@ const ForgotPassword = () => {
       formState: { errors }
     } = useForm();
 
+    const sendEmail= (e: any) => {
+      if(email.length <= 0 ) {
+        toast.error("Fill all fields before saving", {
+          position: "top-center"
+        });
+        return;
+
+      }
+      else {
+        const emailFormat : ForgotPasswordEmail = {
+          "email": email
+        }
+        
+        forgotPassword(emailFormat);
+        setEmail("");
+      }
+    }
+   
 
     return (
         <>
@@ -29,7 +54,7 @@ const ForgotPassword = () => {
         <input  type='email' id='email' className='input' value={email} autoComplete='off'  {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })} 
         onChange={(e) => setEmail(e.target.value)}></input>
         
-        <button id='forgot-password-button'>Send</button>
+        <button id='forgot-password-button' onClick={handleSubmit(sendEmail)}>Send</button>
         
        
 
@@ -40,6 +65,7 @@ const ForgotPassword = () => {
     
         </form>
         <img src={FrontPage} className='front-image' />
+        <ToastContainer/>
         </>
       )
 }

@@ -33,7 +33,7 @@ const LoginForm: React.FC<ILoginProps>= ({loginUser}) => {
     event.preventDefault();
   };
   const authenticateUser = (e: any) => {
-    e.preventDefault();
+    
     if(password.length <= 0 || email.length <= 0 ) {
     toast.error("Fill all fields before saving", {
       position: "top-center"

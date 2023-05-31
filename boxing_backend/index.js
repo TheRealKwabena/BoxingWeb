@@ -56,6 +56,7 @@ app.get("/api", function (req, res) {
 app.route("/api/auth/register").all(AuthController);
 app.route("/api/auth/login").all(AuthController);
 app.route("/api/auth/logout").all(AuthController);
+app.route("/api/auth/forgot-password").all(AuthController);
 app.route("/api/customers").all(CustomerController);
 app.route("/api/currentuser").all(CustomerController);
 

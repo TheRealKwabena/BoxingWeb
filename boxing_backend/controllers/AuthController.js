@@ -5,6 +5,8 @@ var jwt = require("jsonwebtoken");
 var validateToken = require("../middleware/validateToken")
 var Customer = require("../domain/CustomerSchema");
 var Token = require("../domain/TokenSchema");
+const  {forgotPasswordSender} = require("../nodemailer/emailService")
+var {generatePassword} = require("../utils/PasswordGenerator");
 
 router.post("/api/auth/register", async (req, res) =>  {
     const {name, email, password} = req.body;
@@ -26,7 +28,8 @@ router.post("/api/auth/register", async (req, res) =>  {
         });
         if(customer) {
             console.log(customer)
-            return res.status(201).json({
+            return res.status(201
+            ).json({
                 id: customer._id,
                 name: customer.name,
                 email: customer.email,
@@ -96,6 +99,46 @@ router.post("/api/auth/logout", validateToken, async(req, res) => {
     res.status(200).send("Logged out successfully");
 
 
+})
+
+
+router.patch("/api/auth/forgot-password", async(req, res) => {
+    const {email} = req.body;
+
+    
+        const existing_customer = await Customer.findOne({email});
+        
+        if(existing_customer) {
+            var generatedPassword = ''
+           
+            var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+                    'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+            
+            for (let i = 1; i <= 8; i++) {
+                var char = Math.floor(Math.random()
+                            * str.length + 1);
+                
+                generatedPassword += str.charAt(char)
+            }
+            console.log(generatedPassword);
+            const hashedPassword = await bcrypt.hash(generatedPassword, 10);
+            const updatedCustomer = await  Customer.findOneAndUpdate({email}, {password: hashedPassword}); 
+            console.log("Updated customer: " + updatedCustomer)
+
+            try {
+                await forgotPasswordSender( existing_customer.email, existing_customer.name, generatedPassword);
+            } catch(err) {
+                console.log(err);
+            }
+            return res.status(200).json({message: "Password updated"});
+
+            
+        }else {
+            return res.status(200).json({message: "Email could not be found", 
+                error: "Authorization Error"})
+        }
+
+    
 })
 
 module.exports = router;

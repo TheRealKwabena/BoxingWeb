@@ -17,8 +17,8 @@ Here, the user will provide their credentials which include the name, email and 
 ## Login Page
 
 #### Chosen Prototype
-![Login Page](/boxing_ui/public/Desktop%20-%202Login%20Page.png)
+![Login Page](/boxing_ui/boxing_frontend/public/Desktop%20-%202Login%20Page.png)
 
 
 ## Landing Page
-![Landing Page](/boxing_ui/public/Desktop%20-%201LandingPage.jpg)
+![Landing Page](/boxing_ui/boxing_frontend/public/Desktop%20-%201LandingPage.jpg)

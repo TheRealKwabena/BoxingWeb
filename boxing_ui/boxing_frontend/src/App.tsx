@@ -53,22 +53,35 @@ function App() {
 
   const addUser = async(customer: Customer) => {
      axios.post("http://localhost:8080/api/auth/register", customer).then((response) => {
-      if(response.status === 400) {
-        toast.error(response.data, {
+      if(response.data.error === "Authorization Error") {
+        console.log(response.data.message);
+        toast.error("Email already taken", {
+          position: "top-center"
+        })
+       
+
+      }
+      else if(response.data.error === "Authentication Error") {
+        console.log(response.data.message);
+        toast.warning("Already logged in", {
           position: "top-center"
         })
         
-
       }
+
+      
       else {
         console.log(response.data);
         const data = response.data;
         setCustomers([...customers, data]);
        
+       
         toast.success("User added succesfully", {
           position: "top-center"
         })
-        window.location.replace("/");
+        window.location.replace("/")
+      
+        
       }
       
 

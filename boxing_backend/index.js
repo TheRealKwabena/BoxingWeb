@@ -28,7 +28,7 @@ database.on('error', (error) => {
 })
 
 database.once('connected', () => {
-    console.log(`Connected to MongoDB with URI: ${mongoURI}`)
+    console.log(`Connected to MongoDB`)
 })
 
 app.use(express.json());

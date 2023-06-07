@@ -5,7 +5,7 @@ var jwt = require("jsonwebtoken");
 var validateToken = require("../middleware/validateToken")
 var Customer = require("../domain/CustomerSchema");
 var Token = require("../domain/TokenSchema");
-const  {forgotPasswordSender} = require("../nodemailer/emailService")
+const  {forgotPasswordSender, confirmationEmail} = require("../nodemailer/emailService")
 var {generatePassword} = require("../utils/PasswordGenerator");
 
 router.post("/api/auth/register", async (req, res) =>  {
@@ -28,6 +28,12 @@ router.post("/api/auth/register", async (req, res) =>  {
         });
         if(customer) {
             console.log(customer)
+            try {
+                await confirmationEmail( customer.email, customer.name);
+            } catch(err) {
+                console.log(err);
+            }
+
             return res.status(201
             ).json({
                 id: customer._id,

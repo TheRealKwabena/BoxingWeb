@@ -22,15 +22,10 @@ const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = React.useState(false);
 
-    const {
-      register,
-      handleSubmit,
-      formState: { errors }
-    } = useForm();
-
+   
 
     const createUser = (e: any) => {
-      
+      e.preventDefault()
       if(name.length <= 0 || password.length <= 0 || email.length <= 0 ) {
       toast.error("Fill all fields before saving", {
         position: "top-center"
@@ -45,11 +40,11 @@ const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
         }
         addUser(customer);
         
-        
-
         setName("");
         setEmail("");
-        setPassword("")
+        setPassword("");
+
+        
       }
     }
 
@@ -62,7 +57,7 @@ const RegisterForm: React.FC<IRegisterProps> = ({addUser}) => {
   return (
     <form className='register-form'>
     <label htmlFor='name'>Name</label>
-    <input type='text' className='input' id='name' value={name} {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
+    <input type='text' className='input' id='name' value={name} 
     onChange={(e) => setName(e.target.value)}/>
     <label htmlFor='email'>Email</label>
     <input  type='email' id='email' className='input' value={email} autoComplete='off' 
